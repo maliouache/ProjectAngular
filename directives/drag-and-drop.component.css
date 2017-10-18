@@ -18,3 +18,22 @@
   font-weight: bold;
   text-align:center;
 }
+
+.dropzone-list > ul {
+  width: 30%;
+  list-style: none;
+}
+.dropzone-list > ul > li:before {
+  content : '+';
+  color: #6def9a;
+}
+.dropzone-list > ul > li {
+  border: 1px solid black;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+.dropzone-list > ul.invalid > li:before {
+  content : '-';
+  color: #ef000f;
+}
