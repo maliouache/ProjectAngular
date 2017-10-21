@@ -1,0 +1,12 @@
+.itemListCatZone {
+    width: 100%;
+    height: 140px;
+    border-width: 1px;
+    border-color: blue;
+}
+
+.itemCat {
+    width: 160px;
+    height: 140px;
+    float: left;
+}

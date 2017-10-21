@@ -10,7 +10,10 @@ import { DetailService } from './detail.service';
 import { Http, HttpModule } from '@angular/http';
 import { ItemListCatDirective } from './directives/item-list-cat.directive';
 import { DragAndDropDirective } from './directives/drag-and-drop.directive';
-import { DragAndDropComponent } from './directives/drag-and-drop.component';
+import { DragAndDropComponent } from './directives/drag-and-drop/drag-and-drop.component';
+import { ItemListCatComponent } from './directives/item-list-cat/item-list-cat.component';
+import { ItemCatDirective } from './directives/item-cat.directive';
+import { ItemCatComponent } from './directives/item-cat/item-cat.component';
 
 const routes : Routes = [{
   path : 'Products/:marque', 
@@ -23,9 +26,11 @@ const routes : Routes = [{
 ];
   
 @NgModule({
-  declarations: [ AppComponent, ResearchComponent, DetailComponent, ItemListCatDirective, DragAndDropDirective, DragAndDropComponent ],
+  declarations: [ AppComponent, ResearchComponent, DetailComponent, ItemListCatDirective, DragAndDropDirective, DragAndDropComponent, ItemListCatComponent, ItemCatDirective, ItemCatComponent ],
   imports: [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(routes)],
   providers: [ResearchService, DetailService, HttpModule ],
   bootstrap: [AppComponent]
+  
+  
 })
 export class AppModule {  }
