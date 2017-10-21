@@ -10,10 +10,14 @@ export class ItemListCatDirective {
   @HostListener('mouseover', ['$event']) public onMouseOver(evt){
     evt.preventDefault();
     evt.stopPropagation();
+    console.log("hhhh");
+    
   }
 
   @HostListener('mouseleave', ['$event']) public onMouseLeave(evt){
     evt.preventDefault();
     evt.stopPropagation();
+    console.log("ggggg");
+    
   }
 }

@@ -8,6 +8,7 @@ export class ItemCatDirective {
   @HostBinding ('style.background') private background = '#FEFEFE';  
   constructor() { }
   @HostListener('mouseover', ['$event']) public onMouseOver(evt){
+    console.log("wwww");
     evt.preventDefault();
     evt.stopPropagation();
     this.background = '#949290';
