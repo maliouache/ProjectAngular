@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+
+<app-site-header></app-site-header>
+
+<br>
+<input [(ngModel)]="marque" />
+<!-- <a [routerLink]="['/Products', marque]"> Va chercher </a> -->
+
+<button [routerLink]="['/Products', marque]" type="button" class="btn btn-primary" 
+        tooltip="Appuyez pour rechercher">rechercher</button>
+        <br/><br/>
+
+
+<router-outlet></router-outlet>
+<br>
+
+<app-site-footer></app-site-footer>
+
+
+
+
+
+=======
 <h2> Bonjour sur ce merveilleux site de ventes en ligne </h2>
 <input [(ngModel)]="marque" />
 <a [routerLink]="['/Products', marque]"> Va chercher </a>
@@ -7,3 +30,4 @@
 
 <app-drag-and-drop></app-drag-and-drop>
 <app-item-list-cat></app-item-list-cat>
+>>>>>>> 80a344377fe7df3309df00f0767d9d6a0649c39c
