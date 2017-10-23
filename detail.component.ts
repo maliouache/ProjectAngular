@@ -3,7 +3,7 @@ import { ActivatedRoute, Params} from '@angular/router';
 import { DetailService} from './detail.service';
 
 @Component({
- selector: "details",
+ selector: "detail",
  templateUrl: "./detail.component.html"
 })
 export class DetailComponent implements OnInit {
