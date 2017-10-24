@@ -17,5 +17,6 @@ export class ConnectionService {
    getUserLoggedIn(){
      return this.UserLoggedIn;
    }
+ 
 
 }
