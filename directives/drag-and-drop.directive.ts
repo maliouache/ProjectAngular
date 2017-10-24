@@ -6,7 +6,7 @@ import {forEach} from 'ramda';
 })
 export class DragAndDropDirective {
 
-  @Input() private allowed_extensions : Array<string> = [];
+  @Input() private allowedextensions : Array<string> = [];
   @Output() private filesChangeEmiter : EventEmitter<File[]> = new EventEmitter();
   @Output() private filesInvalidEmiter : EventEmitter<File[]> = new EventEmitter();
   @HostBinding('style.background') private background = '#eee';
@@ -34,10 +34,10 @@ export class DragAndDropDirective {
     let valid_files : Array<File> = [];
     let invalid_files : Array<File> = [];
     if(files.length > 0){
-
+      console.log('ggfg fle detected');
       forEach(files, (file: File) =>{
         let ext = file.name.split('.')[file.name.split('.').length - 1];
-        if(this.allowed_extensions.lastIndexOf(ext) != -1){
+        if(this.allowedextensions.lastIndexOf(ext) != -1){
           valid_files.push(file);
         }else{
           invalid_files.push(file);
