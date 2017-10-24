@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {ItemCatComponent} from '../item-cat/item-cat.component'
+import { ResearchService } from '../../research.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-item-list-cat',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-list-cat.component.css']
 })
 export class ItemListCatComponent implements OnInit {
-  private itemList:any=[{"name":"iphone","price":329},{"name":"samsung","price":409},{"name":"iphone","price":329},{"name":"iphone","price":329}];
-  constructor() { }
+  @Input() private category:String;
+  private itemList:any;
+  constructor(private research : ResearchService) { 
+  }
 
   ngOnInit() {
+      this.research.getProducts("Category/"+this.category).subscribe(res => {this.itemList = res;console.log(res)}); 
   }
 
   onItemsChange(itemList:Array<any>){

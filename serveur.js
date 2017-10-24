@@ -25,24 +25,32 @@ mongoClient.connect(url, function (err, db) {
             res.setHeader('Content-Type','application/json; charset=utf-8');
             res.setHeader('Access-Control-Allow-Origin','*');
             var json = JSON.stringify(documents);
-            console.log("JSON = "); console.log(json);
             res.end(json);
        });
    });
+   
+   app.get('/Category/:category', function (req, res) {
+        let category = req.params.category;
+        let filtre = {}; filtre.category = category;
+        db.collection("Products").find(filtre)
+    .toArray(function(err, documents) {
+            res.setHeader('Content-Type','application/json; charset=utf-8');
+            res.setHeader('Access-Control-Allow-Origin','*');
+            var json = JSON.stringify(documents);
+            res.end(json);
+    });
+});
 
    app.get('/Detail/:id', function (req, res) {
        
        let id = req.params.id;
        let filtre = {}; filtre._id = id;
-       console.log("Recherche de l'id : "+id);
        if (/[0-9a-f]{24}/.test(id)) {
-           console.log("ok");
            db.collection("Products").find({"_id": ObjectId(id)})
 	     .toArray(function(err, documents) {
               res.setHeader('Content-Type','application/json; charset=utf-8');
               res.setHeader('Access-Control-Allow-Origin','*');
               var json = JSON.stringify(documents);
-              console.log("JSON = "); console.log(json);
               res.end(json);
           });
         }

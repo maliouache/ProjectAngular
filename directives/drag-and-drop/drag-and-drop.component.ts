@@ -15,7 +15,6 @@ export class DragAndDropComponent implements OnInit {
   }
 
   ngOnInit() {
-  	console.log("hello1");
   }
 
 }

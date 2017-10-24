@@ -1,23 +1,30 @@
-import { Directive, HostListener,HostBinding } from '@angular/core';
+import { Directive, HostListener,HostBinding, Input } from '@angular/core';
 
 @Directive({
   selector: '[appItemListCat]'
 })
 export class ItemListCatDirective {
-
-  @HostBinding('style.background') private background = '#FEFEFE';  
-  constructor() { }
+  @Input() category:String;
+  @HostBinding('style.background') private background = '';
+  
+  constructor() { 
+    console.log('hey');
+    // let filtre = {}; filtre.category = this.category;
+    // db.collection("Products").find(filtre)
+    // .toArray(function(err, documents) {
+    //          res.setHeader('Content-Type','application/json; charset=utf-8');
+    //          res.setHeader('Access-Control-Allow-Origin','*');
+    //          var json = JSON.stringify(documents);
+  }
   @HostListener('mouseover', ['$event']) public onMouseOver(evt){
     evt.preventDefault();
     evt.stopPropagation();
-    console.log("hhhh");
     
   }
 
   @HostListener('mouseleave', ['$event']) public onMouseLeave(evt){
     evt.preventDefault();
     evt.stopPropagation();
-    console.log("ggggg");
     
   }
 }

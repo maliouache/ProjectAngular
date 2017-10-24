@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item-cat',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-cat.component.css']
 })
 export class ItemCatComponent implements OnInit {
-  // private item:any;
+  @Input() private itemComp:any;
   constructor() { 
     
   }
