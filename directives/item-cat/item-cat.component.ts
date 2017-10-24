@@ -14,4 +14,11 @@ export class ItemCatComponent implements OnInit {
   ngOnInit() {
   }
 
+  showDetails(){
+    let html:String='<div id="'+this.itemComp._id+'" style="display:block;"><b>Brand :</b> '+this.itemComp.brand+'<br/><b>Name :</b> '+this.itemComp.name+'<br/><b>Price :</b> '+this.itemComp.price+' $<br/><b>Description :</b> '+this.itemComp.description+'<br/></div>';
+    let id=document.getElementById(this.itemComp.category);
+    console.log(id);
+    id.innerHTML=""+html;
+  }
+
 }

@@ -14,4 +14,10 @@ export class ItemCatDirective {
     evt.preventDefault();
     evt.stopPropagation();
   }
+
+  @HostListener('mouseclick', ['$event']) public onMouseClick(evt){
+    evt.preventDefault();
+    evt.stopPropagation();
+    console.log(evt);
+  }
 }
