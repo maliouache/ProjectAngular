@@ -4,7 +4,7 @@ export class application {
   public password: string;
   public pays: string;
   public gender: string;
-  public phoneNumber: string;
+  public phoneNumber: number;
       constructor() {  }
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {application} from'./application';
-import { Http, Response } from '@angular/http';
+import {application } from'./application';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import {ApplicationFormService} from './application-form.service';
 
 @Component({
   selector: 'app-application-form',
@@ -9,6 +10,7 @@ import { Http, Response } from '@angular/http';
 })
 export class ApplicationFormComponent implements OnInit {
 
+  private mail : Object[];
   constructor( private http : Http) { 
 
   }
@@ -35,17 +37,32 @@ export class ApplicationFormComponent implements OnInit {
       "user_fullName" : this.model.fullName,
       "mail_adress" : this.model.mailAdress,
       "password" : this.model.password,
+      "phone_number" : this.model.phoneNumber,
       "pays" : this.model.pays,
       "gender" : this.model.gender,
-      "phone_number" : this.model.phoneNumber,
       "inscription_time" : Math.floor(Date.now() / 1000)
   });
-  
-  console.log(saveObject);
-  const headers = new Headers();
-  headers.append('content-type', 'application/json; charset=utf-8');
 
-  this.http.post(url, saveObject).subscribe(
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+  let options = new RequestOptions({ headers: headers });
+
+  let url2 = "http://localhost:8888/Users/mail";
+
+  console.log("avant la rech : " + this.mail.length);
+  
+  this.http.post(url2, saveObject, options).map((res:Response) => res.json()).subscribe(
+    (res => (this.mail=res)),
+    err => console.error(err)
+  );
+
+
+  console.log("resultattttt de recher : " + this.mail.length);
+  
+
+  console.log(saveObject);
+
+
+  this.http.post(url, saveObject, options).subscribe(
     () => {},
     err => console.error(err)
   );
@@ -58,7 +75,5 @@ export class ApplicationFormComponent implements OnInit {
     console.log(this.model.gender);
   }
 
-  // TODO: Remove this when we're done
-  //get diagnostic() { return JSON.stringify(this.model); }
 
 }
