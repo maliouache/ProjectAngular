@@ -28,9 +28,8 @@ mongoClient.connect(url, function (err, db) {
     })
     });
 
-    app.post('/Users/mail', jsonParser,function (req, res) {
-        console.log("on est laaaaa2222")
-        let mail = req.body.mail_adress;
+    app.get('/Users/:mail',function (req, res) {
+        let mail = req.params.mail;
         let filtre = {}; filtre.mail_adress = mail;
         db.collection("Users3").find(filtre)
       .toArray(function(err, documents) {

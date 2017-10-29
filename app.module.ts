@@ -27,10 +27,15 @@ import { DragAndDropComponent } from './directives/drag-and-drop/drag-and-drop.c
 import { ItemListCatComponent } from './directives/item-list-cat/item-list-cat.component';
 import { ItemCatDirective } from './directives/item-cat.directive';
 import { ItemCatComponent } from './directives/item-cat/item-cat.component';
+import { AddUserService } from './services/add-user.service';
 
 const routes : Routes = [{
   path : 'Products/:marque', 
   component : ResearchComponent
+  },
+  {
+  path : 'Users/:mail', 
+  component : ApplicationFormComponent
   },
   {
   path : 'Detail/:id', 
@@ -56,7 +61,7 @@ const routes : Routes = [{
 @NgModule({
   declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent ],
   imports: [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(routes)],
-  providers: [ResearchService, DetailService, HttpModule, ConnectionService, AuthenGuard ],
+  providers: [ResearchService, DetailService, HttpModule, ConnectionService, AuthenGuard, AddUserService],
   bootstrap: [AppComponent],
   exports: [SiteHeaderComponent]
 })

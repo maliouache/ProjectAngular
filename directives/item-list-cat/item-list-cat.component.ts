@@ -15,7 +15,7 @@ export class ItemListCatComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.research.getProducts("Category/"+this.category).subscribe(res => {this.itemList = res;console.log(res)}); 
+      this.research.getProducts("Category/"+this.category).subscribe(res => {this.itemList = res;}); 
   }
 
   onItemsChange(itemList:Array<any>){

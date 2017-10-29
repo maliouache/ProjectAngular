@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {application } from'./application';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import {ApplicationFormService} from './application-form.service';
+import {application } from './application';
+import {AddUserService} from '../services/add-user.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-application-form',
@@ -10,10 +10,11 @@ import {ApplicationFormService} from './application-form.service';
 })
 export class ApplicationFormComponent implements OnInit {
 
-  private mail : Object[];
-  constructor( private http : Http) { 
-
-  }
+  private mail : any;
+  private model = new application();
+  private existDeja:boolean;
+  private submitted = false;
+  constructor(private adduser: AddUserService) {  }
 
   ngOnInit() {
   }
@@ -26,13 +27,11 @@ export class ApplicationFormComponent implements OnInit {
     'Sainte-Lucie','Saint-Marin','Salomon','Salvador','Samoa','São Tomé-et-Principe','Sénégal','Serbie','Seychelles','Sierra Leone','Singapour','Slovaquie','Slovénie','Somalie','Soudan','Soudan du Sud','Sri Lanka','Suède','Suisse','Suriname','Swaziland','Syrie','Tadjikistan','Tanzanie','Tchad','Thaïlande','Timor oriental','Togo',
     'Tonga','Trinité-et-Tobago','Tunisie','Turkménistan','Turquie','Tuvalu','Ukraine','Uruguay','Vanuatu','Vatican','Venezuela','Viêt Nam','Yémen','Zambie','Zimbabwe'];
   
-    model = new application();
-
-  submitted = false;
+  
 
   onSubmit() {
-    let url = "http://localhost:8888/Users";
-
+    
+    //just to make the form in the json format to put simpler
     var saveObject = JSON.stringify({
       "user_fullName" : this.model.fullName,
       "mail_adress" : this.model.mailAdress,
@@ -41,39 +40,8 @@ export class ApplicationFormComponent implements OnInit {
       "pays" : this.model.pays,
       "gender" : this.model.gender,
       "inscription_time" : Math.floor(Date.now() / 1000)
-  });
-
-  let headers = new Headers({ 'Content-Type': 'application/json' });
-  let options = new RequestOptions({ headers: headers });
-
-  let url2 = "http://localhost:8888/Users/mail";
-
-  console.log("avant la rech : " + this.mail.length);
-  
-  this.http.post(url2, saveObject, options).map((res:Response) => res.json()).subscribe(
-    (res => (this.mail=res)),
-    err => console.error(err)
-  );
-
-
-  console.log("resultattttt de recher : " + this.mail.length);
-  
-
-  console.log(saveObject);
-
-
-  this.http.post(url, saveObject, options).subscribe(
-    () => {},
-    err => console.error(err)
-  );
-
-
-    console.log("vous avez cliquez sur register");
-    // this.model.fullName = getElementByID("fullName").value;
-    this.submitted = true;
-    console.log(this.model.pays);
-    console.log(this.model.gender);
+      });
+    // here we subscribe to the service to  add the user
+    let res=this.adduser.addUser(saveObject);    
   }
-
-
 }

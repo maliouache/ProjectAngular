@@ -8,7 +8,6 @@ export class ItemListCatDirective {
   @HostBinding('style.background') private background = '';
   
   constructor() { 
-    console.log('hey');
     // let filtre = {}; filtre.category = this.category;
     // db.collection("Products").find(filtre)
     // .toArray(function(err, documents) {
