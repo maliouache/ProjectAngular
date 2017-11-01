@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ConnectionService} from '../connection.service';
+import {LogInService} from '../services/log-in.service';
 
 @Component({
   selector: 'app-connected-site-header',
@@ -8,7 +8,7 @@ import {ConnectionService} from '../connection.service';
 })
 export class ConnectedSiteHeaderComponent implements OnInit {
 
-  constructor( private user: ConnectionService) { }
+  constructor( private user: LogInService) { }
 
   ngOnInit() {
   }

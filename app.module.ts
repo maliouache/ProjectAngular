@@ -16,7 +16,7 @@ import { SiteFooterComponent } from './site-footer/site-footer.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ConnectedSiteHeaderComponent } from './connected-site-header/connected-site-header.component';
 import { ApplicationFormComponent } from './application-form/application-form.component';
-import { ConnectionService} from './connection.service';
+import { LogInService} from './services/log-in.service';
 import {AuthenGuard} from './authen.guard';
 
 
@@ -61,7 +61,7 @@ const routes : Routes = [{
 @NgModule({
   declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent ],
   imports: [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(routes)],
-  providers: [ResearchService, DetailService, HttpModule, ConnectionService, AuthenGuard, AddUserService],
+  providers: [ResearchService, DetailService, HttpModule, LogInService, AuthenGuard, AddUserService],
   bootstrap: [AppComponent],
   exports: [SiteHeaderComponent]
 })

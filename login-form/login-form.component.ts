@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {ConnectionService} from '../connection.service'; 
+import {LogInService} from '../services/log-in.service'; 
 
 @Component({
   selector: 'app-login-form',
@@ -9,27 +9,26 @@ import {ConnectionService} from '../connection.service';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private router:Router, private user:ConnectionService) { }
+  constructor(private router:Router, private user:LogInService) { }
 
   ngOnInit() {
   }
-
-
   
 
+
   loginUser(e){
-
-
     e.preventDefault();
-    var userName = e.target.elements[0].value;
-    var password =  e.target.elements[1].value;
-    console.log(userName, password);
-
-    if( userName == 'admin' && password == 'admin'){
-      this.user.setUserLoggedIn();
-      this.router.navigate(['connected-site-header']);
-
-    }
+    var saveObject = JSON.stringify({
+      "mail_adress" : e.target.elements[0].value,
+      "password" : e.target.elements[1].value
+      });
+      
+    let res=this.user.logUser(saveObject); 
+    console.log(this.user.getUserLoggedIn());
+    
+    if( this.user.getUserLoggedIn()==true){
+       this.router.navigate(['connected-site-header']);
+     }
   }
 
 }

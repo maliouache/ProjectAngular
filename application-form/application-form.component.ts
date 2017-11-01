@@ -45,3 +45,5 @@ export class ApplicationFormComponent implements OnInit {
     let res=this.adduser.addUser(saveObject);    
   }
 }
+
+
