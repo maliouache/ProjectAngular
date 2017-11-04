@@ -1,0 +1,8 @@
+<h2>Resultats:</h2>
+<div class="listProducts">
+  <div class="itemListCatZone"  appItemListCat>
+    <div class="tile" *ngFor="let item of itemList">
+        <app-item-cat [itemComp]="item"></app-item-cat>
+    </div>
+  </div>
+</div><br>

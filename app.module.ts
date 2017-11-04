@@ -28,6 +28,7 @@ import { ItemListCatComponent } from './directives/item-list-cat/item-list-cat.c
 import { ItemCatDirective } from './directives/item-cat.directive';
 import { ItemCatComponent } from './directives/item-cat/item-cat.component';
 import { AddUserService } from './services/add-user.service';
+import { ItemListSearchComponent } from './components/item-list-search/item-list-search.component';
 
 const routes : Routes = [{
   path : 'Products/:marque', 
@@ -59,7 +60,7 @@ const routes : Routes = [{
 
   
 @NgModule({
-  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent ],
+  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent ],
   imports: [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(routes)],
   providers: [ResearchService, DetailService, HttpModule, LogInService, AuthenGuard, AddUserService],
   bootstrap: [AppComponent],

@@ -43,8 +43,11 @@ mongoClient.connect(url, function (err, db) {
     
    app.get('/Products/:marque', function (req, res) {
        let marque = req.params.marque;
-       let filtre = {}; filtre.brand = marque;
-       db.collection("Products").find(filtre)
+       let filtre = {}; filtre.brand = {$regex:marque,$options:"$i"};
+       filtre.category = {$regex:marque,$options:"$i"};
+       filtre.name = {$regex:marque,$options:"$i"};
+       filtre.description = {$regex:marque,$options:"$i"};
+       db.collection("Products").find({$or:[{"brand":filtre.brand},{"category":filtre.category},{"name":filtre.name},{"description":filtre.description}]})
 	 .toArray(function(err, documents) {
             res.setHeader('Content-Type','application/json; charset=utf-8');
             res.setHeader('Access-Control-Allow-Origin','*');
@@ -56,7 +59,7 @@ mongoClient.connect(url, function (err, db) {
    app.get('/Category/:category', function (req, res) {
         let category = req.params.category;
         let filtre = {}; filtre.category = category;
-        db.collection("Products").find(filtre)
+        db.collection("Products").find(filtre).limit(20)
     .toArray(function(err, documents) {
             res.setHeader('Content-Type','application/json; charset=utf-8');
             res.setHeader('Access-Control-Allow-Origin','*');

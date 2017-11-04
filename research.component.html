@@ -1,6 +1,1 @@
- Resultat : 
- <ul>
-   <li *ngFor="let product of products"><a [routerLink]="['/Detail',product._id]">
-     {{product.brand}} {{product.name}}
-   </a></li>
- </ul>
+<app-item-list-search [itemList]="products"></app-item-list-search>

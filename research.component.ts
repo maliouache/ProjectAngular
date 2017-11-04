@@ -12,7 +12,7 @@ export class ResearchComponent implements OnInit {
       constructor(private research : ResearchService, private route : ActivatedRoute){}
       ngOnInit(){
                 this.route.params.subscribe((params:Params)=>{
-                     this.research.getProducts("Products/"+params.marque).subscribe(res => {this.products = res;});
+                     this.research.getProducts("Products/"+params.marque).subscribe(res => {this.products = res;console.log(this.products);});
                 }); 
      }
  }
