@@ -3,12 +3,12 @@ import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { AddUserService } from './add-user.service';
 import {Router} from '@angular/router';
-
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable()
 export class LogInService {
   public UserLoggedIn = false;
-  constructor(private http:Http, private check:AddUserService, private router:Router) {
+  constructor(private http:Http, private check:AddUserService, private router:Router, public cookieService:CookieService) {
    }
 
   setUserLoggedIn(){
@@ -34,8 +34,11 @@ export class LogInService {
           this.setUserLoggedIn();
           let s=document.getElementById("logIn_completion");
           s.innerHTML='<p style="color: green;">Vous allez etre rediriger</p>';
-          this.router.navigate(['connected-site-header']);
+          this.cookieService.set('ecomm', JSON.parse(form).mail_adress);
           
+          // this.router.navigate(['/']);    
+          location.reload(true);
+          window.location.assign("http://localhost:4200/")
         }else{
           let s=document.getElementById("logIn_completion");
           s.innerHTML='<p style="color: red;">le mot de passe entré n\'est pas correcte</p>';

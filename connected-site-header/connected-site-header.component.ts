@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {LogInService} from '../services/log-in.service';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-connected-site-header',
@@ -8,9 +8,10 @@ import {LogInService} from '../services/log-in.service';
 })
 export class ConnectedSiteHeaderComponent implements OnInit {
 
-  constructor( private user: LogInService) { }
+  constructor( private cookieServ:CookieService) { }
 
   ngOnInit() {
+    
   }
 
 }
