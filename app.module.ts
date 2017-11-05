@@ -18,8 +18,7 @@ import { ConnectedSiteHeaderComponent } from './connected-site-header/connected-
 import { ApplicationFormComponent } from './application-form/application-form.component';
 import { LogInService} from './services/log-in.service';
 import {AuthenGuard} from './authen.guard';
-
-
+import {CookieService} from 'ngx-cookie-service';
 
 import { ItemListCatDirective } from './directives/item-list-cat.directive';
 import { DragAndDropDirective } from './directives/drag-and-drop.directive';
@@ -61,7 +60,7 @@ const routes : Routes = [{
 @NgModule({
   declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent ],
   imports: [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(routes)],
-  providers: [ResearchService, DetailService, HttpModule, LogInService, AuthenGuard, AddUserService],
+  providers: [ResearchService, DetailService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
   bootstrap: [AppComponent],
   exports: [SiteHeaderComponent]
 })

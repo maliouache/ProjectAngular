@@ -1,5 +1,15 @@
+<!-- <div id="header">
+        <app-connected-site-header></app-connected-site-header>
+        <app-site-header></app-site-header>'
+</div> -->
 
-<app-site-header></app-site-header>
+<div *ngIf="exis">   
+        <app-connected-site-header></app-connected-site-header>
+</div>
+<div *ngIf="!exis">
+        <app-site-header #notCon></app-site-header>
+</div>
+
 
 <br>
 <input [(ngModel)]="marque" />

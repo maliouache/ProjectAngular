@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {LogInService} from '../services/log-in.service'; 
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login-form',
@@ -11,7 +12,10 @@ export class LoginFormComponent implements OnInit {
 
   constructor(private router:Router, private user:LogInService) { }
 
+
+
   ngOnInit() {
+
   }
   
 
@@ -24,11 +28,7 @@ export class LoginFormComponent implements OnInit {
       });
       
     let res=this.user.logUser(saveObject); 
-    console.log(this.user.getUserLoggedIn());
-    
-    if( this.user.getUserLoggedIn()==true){
-       this.router.navigate(['connected-site-header']);
-     }
   }
+
 
 }
