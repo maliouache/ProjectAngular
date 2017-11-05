@@ -15,9 +15,8 @@ export class ItemCatComponent implements OnInit {
   }
 
   showDetails(){
-    let html:String='<div id="'+this.itemComp._id+'" style="display:block;"><b>Brand :</b> '+this.itemComp.brand+'<br/><b>Name :</b> '+this.itemComp.name+'<br/><b>Price :</b> '+this.itemComp.price+' $<br/><b>Description :</b> '+this.itemComp.description+'<br/></div>';
-    let id=document.getElementById(this.itemComp.category);
-    console.log(id);
+    let html:String='<div id="'+this.itemComp._id+'" style="display:block;"><img src="'+this.itemComp.imgFolder+'main" style="width:500px; height:320px;"><br><b>Brand :</b> '+this.itemComp.brand+'<br/><b>Name :</b> '+this.itemComp.name+'<br/><b>Price :</b> '+this.itemComp.price+' $<br/><b>Description :</b> '+this.itemComp.description+'<br/></div>';
+    let id=document.getElementById("app_body");
     id.innerHTML=""+html;
   }
 
