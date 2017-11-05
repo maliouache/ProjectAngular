@@ -1,7 +1,4 @@
-<!-- <div id="header">
-        <app-connected-site-header></app-connected-site-header>
-        <app-site-header></app-site-header>'
-</div> -->
+
 
 <div *ngIf="exis">   
         <app-connected-site-header></app-connected-site-header>
@@ -10,14 +7,7 @@
         <app-site-header #notCon></app-site-header>
 </div>
 
-
 <br>
-<input [(ngModel)]="marque" />
-<!-- <a [routerLink]="['/Products', marque]"> Va chercher </a> -->
-
-<button [routerLink]="['/Products', marque]" type="button" class="btn btn-primary" 
-        tooltip="Appuyez pour rechercher">rechercher</button>
-        <br/><br/>
 
 
 <router-outlet></router-outlet>

@@ -10,6 +10,8 @@ export class ResearchService {
        
        getProducts(parametres : String) : Observable<any> {
           let url = "http://localhost:8888/"+parametres;
+          console.log(url);
+          
           let observable: Observable<any> = this.http.get(url).map((res:Response) => res.json());
           return observable;
        }
