@@ -51,6 +51,10 @@ const routes : Routes = [{
     component : LoginFormComponent
   },
   {
+    path: 'show-categories',
+    component: ShowCategoriesComponent
+  },
+  {
     path: 'my-sells',
     component : MySellsComponent
   },
