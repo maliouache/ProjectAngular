@@ -1,4 +1,4 @@
-<a (click)="showDetails()">
+<a [routerLink]="['/Detail',itemComp._id]">
   <div class="tile__media" >
     <img class="tile__img" src="{{itemComp.imgFolder}}main" title="{{itemComp.description}}"/>
   </div>

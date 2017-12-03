@@ -8,11 +8,11 @@ import { DetailService} from './detail.service';
 })
 export class DetailComponent implements OnInit {
       
-      private detailsProduct : Object[];
+      private itemComp : Object[];
       constructor(private detail : DetailService, private route : ActivatedRoute){}
       ngOnInit(){
                 this.route.params.subscribe((params:Params)=>{
-                     this.detail.getDetails("Detail/"+params.id).subscribe(res => {this.detailsProduct = res;});
+                     this.detail.getDetails("Detail/"+params.id).subscribe(res => {this.itemComp = res;});
                 }); 
      }
  }

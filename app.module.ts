@@ -19,6 +19,7 @@ import { ApplicationFormComponent } from './application-form/application-form.co
 import { LogInService} from './services/log-in.service';
 import {AuthenGuard} from './authen.guard';
 import {CookieService} from 'ngx-cookie-service';
+import { ImageUploadModule } from "angular2-image-upload";
 
 import { ItemListCatDirective } from './directives/item-list-cat.directive';
 import { DragAndDropDirective } from './directives/drag-and-drop.directive';
@@ -28,6 +29,10 @@ import { ItemCatDirective } from './directives/item-cat.directive';
 import { ItemCatComponent } from './directives/item-cat/item-cat.component';
 import { AddUserService } from './services/add-user.service';
 import { ItemListSearchComponent } from './components/item-list-search/item-list-search.component';
+import { MySellsComponent } from './components/my-sells/my-sells.component';
+import { NewSellFormComponent } from './components/new-sell-form/new-sell-form.component';
+import { ShowCategoriesComponent } from './components/show-categories/show-categories.component';
+import { AddProductService } from './services/add-product.service';
 
 const routes : Routes = [{
   path : 'Products/:marque', 
@@ -46,6 +51,14 @@ const routes : Routes = [{
     component : LoginFormComponent
   },
   {
+    path: 'my-sells',
+    component : MySellsComponent
+  },
+  {
+    path: 'new-sell-form',
+    component : NewSellFormComponent
+  },
+  {
     path: 'applicationForm',
     component: ApplicationFormComponent
   },
@@ -59,9 +72,9 @@ const routes : Routes = [{
 
   
 @NgModule({
-  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent ],
+  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent ],
   imports: [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(routes)],
-  providers: [ResearchService, DetailService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
+  providers: [ResearchService, DetailService, AddProductService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
   bootstrap: [AppComponent],
   exports: [SiteHeaderComponent]
 })

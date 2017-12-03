@@ -5,7 +5,7 @@ export class application {
   public pays: string;
   public gender: string;
   public phoneNumber: number;
-      constructor() {  }
+  constructor() { }
 
 
 }
