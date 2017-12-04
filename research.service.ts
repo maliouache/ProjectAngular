@@ -8,9 +8,8 @@ export class ResearchService {
            
        constructor(private http : Http){}
        
-       getProducts(parametres : String) : Observable<any> {
-          let url = "http://localhost:8888/"+parametres;
-          console.log(url);
+       getProducts(parametre1 : String) : Observable<any> {
+          let url = "http://localhost:8888/"+parametre1;
           
           let observable: Observable<any> = this.http.get(url).map((res:Response) => res.json());
           return observable;

@@ -33,6 +33,7 @@ import { MySellsComponent } from './components/my-sells/my-sells.component';
 import { NewSellFormComponent } from './components/new-sell-form/new-sell-form.component';
 import { ShowCategoriesComponent } from './components/show-categories/show-categories.component';
 import { AddProductService } from './services/add-product.service';
+import { MyListSellsComponent } from './components/my-list-sells/my-list-sells.component';
 
 const routes : Routes = [{
   path : 'Products/:marque', 
@@ -70,13 +71,17 @@ const routes : Routes = [{
     path: 'connected-site-header',
     canActivate: [AuthenGuard],
     component: ConnectedSiteHeaderComponent
+  },
+  {
+    path: 'Owner/:owner',
+    component: ResearchComponent
   }
 
 ];
 
   
 @NgModule({
-  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent ],
+  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent, MyListSellsComponent ],
   imports: [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(routes)],
   providers: [ResearchService, DetailService, AddProductService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
   bootstrap: [AppComponent],

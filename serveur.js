@@ -73,6 +73,17 @@ mongoClient.connect(url, function (err, db) {
                 res.end(json);
             });
     });
+    app.get('/Owner/:owner', function (req, res) {
+        let owner = req.params.owner;
+        let filtre = {}; filtre.owner = owner;
+        db.collection("Products").find(filtre)
+            .toArray(function (err, documents) {
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                var json = JSON.stringify(documents);
+                res.end(json);
+            });
+    });
 
     app.get('/Detail/:id', function (req, res) {
 

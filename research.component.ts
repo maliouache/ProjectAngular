@@ -7,13 +7,12 @@ import { ResearchService} from './research.service';
  templateUrl: "./research.component.html"
 })
 export class ResearchComponent implements OnInit {
-      
       private products : Object[];
       constructor(private research : ResearchService, private route : ActivatedRoute){}
       ngOnInit(){
-                this.route.params.subscribe((params:Params)=>{
-                     this.research.getProducts("Products/"+params.marque).subscribe(res => {this.products = res;console.log(this.products);});
-                }); 
+        this.route.params.subscribe((params:Params)=>{
+            this.research.getProducts("Products/"+params.marque).subscribe(res => {this.products = res;console.log(this.products);});
+        }); 
      }
  }
 

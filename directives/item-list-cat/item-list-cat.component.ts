@@ -18,7 +18,6 @@ export class ItemListCatComponent implements OnInit {
       this.research.getProducts("Category/"+this.category).subscribe(res => {this.itemList = res;}); 
   }
 
-  onItemsChange(itemList:Array<any>){
-    this.itemList=itemList;
+  onItemsChange(){
   }
 }
