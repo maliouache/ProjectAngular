@@ -10,27 +10,27 @@
 
 
 <div id="body-detail" data-spy="scroll" data-target=".navbar" data-offset="50">
-    <!-- Wrapper for slides -->
+  <!-- Wrapper for slides -->
   <div *ngIf="itemComp[0].imgFolder">
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="{{itemComp[0].imgFolder}}main" width="1200" height="700">
-          <div class="carousel-caption">
-            <h3>{{itemComp[0].name}}</h3>
-            <p>product of {{itemComp[0].brand}}.</p>
-          </div>
+      <div class="item active">
+        <img src="{{itemComp[0].imgFolder}}main" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>{{itemComp[0].name}}</h3>
+          <p>product of {{itemComp[0].brand}}.</p>
         </div>
+      </div>
     </div>
   </div>
   <div *ngIf="!itemComp[0].imgFolder">
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="assets/images/default/main" width="1200" height="700">
-          <div class="carousel-caption">
-            <h3>{{itemComp[0].name}}</h3>
-            <p>product of {{itemComp[0].brand}}.</p>
-          </div>
+      <div class="item active">
+        <img src="assets/images/default/main" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>{{itemComp[0].name}}</h3>
+          <p>product of {{itemComp[0].brand}}.</p>
         </div>
+      </div>
     </div>
   </div>
 
@@ -43,15 +43,25 @@
     <p>{{itemComp[0].description}}.</p>
     <br>
   </div>
-  <div id="productPrice" style="text-align:center;"><p>{{itemComp[0].price}} $</p></div>
+  <div id="productPrice" style="text-align:center;">
+    <p>{{itemComp[0].price}} $</p>
+  </div>
   <!-- Container (TOUR Section) -->
-  <div style="text-align:center;"><button class="btn" data-toggle="modal" data-target="#myModal">Purchase The product</button></div>
-
+  <div *ngIf="connected==itemComp[0].owner">
+    <div style="text-align:center;">
+      <button class="btn" data-toggle="modal" data-target="#myModal">Remove The product</button>
+    </div>
+  </div>
+  <div *ngIf="connected!=itemComp[0].owner">
+    <div style="text-align:center;">
+      <button [routerLink]="['/shipping',itemComp[0]._id]" class="btn" data-toggle="modal" data-target="#myModal" ShippingMethodComponent>Purchase The product</button>
+    </div>
+  </div>
   <!-- Container (Contact Section) -->
   <div id="contact" class="container">
     <h3 class="text-center">Contact</h3>
     <p class="text-center">
-      <em>We love our fans!</em>
+      <em>Ask the owner!</em>
     </p>
 
     <div class="row">

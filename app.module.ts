@@ -34,6 +34,7 @@ import { NewSellFormComponent } from './components/new-sell-form/new-sell-form.c
 import { ShowCategoriesComponent } from './components/show-categories/show-categories.component';
 import { AddProductService } from './services/add-product.service';
 import { MyListSellsComponent } from './components/my-list-sells/my-list-sells.component';
+import { ShippingMethodComponent } from './components/shipping-method/shipping-method.component';
 
 const routes : Routes = [{
   path : 'Products/:marque', 
@@ -75,13 +76,17 @@ const routes : Routes = [{
   {
     path: 'Owner/:owner',
     component: ResearchComponent
+  },
+  {
+    path: 'shipping/:id',
+    component: ShippingMethodComponent
   }
 
 ];
 
   
 @NgModule({
-  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent, MyListSellsComponent ],
+  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent, MyListSellsComponent, ShippingMethodComponent ],
   imports: [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(routes)],
   providers: [ResearchService, DetailService, AddProductService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
   bootstrap: [AppComponent],
