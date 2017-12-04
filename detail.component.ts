@@ -4,10 +4,11 @@ import { DetailService} from './detail.service';
 
 @Component({
  selector: "detail",
- templateUrl: "./detail.component.html"
+ templateUrl: "./detail.component.html",
+ styleUrls: ["./detail.component.css"]
 })
 export class DetailComponent implements OnInit {
-      
+      private compt:Number=1;
       private itemComp : Object[];
       constructor(private detail : DetailService, private route : ActivatedRoute){}
       ngOnInit(){
